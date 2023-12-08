@@ -1,0 +1,9 @@
+<aside class="sidebar">
+    <h4>Searching for: ${name}</h3>
+    <input type="text" value.bind="name">
+    <ul>
+        <li repeat.for="item of treeItems">
+            <a href="${item?.route}">${item?.name}</a>
+        </li>
+    </ul>
+</aside>
