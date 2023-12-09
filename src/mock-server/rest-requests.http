@@ -1,5 +1,17 @@
 GET http://localhost:3004/posts/1
 ###
 
-GET http://localhost:3004/getWorkUnits
+GET http://localhost:3004/units
+###
+
+
+GET http://localhost:3004/addresses
+###
+
+
+GET http://localhost:3004/addresses/c8c9772d-4c6b-6865-e053-0100007f6ed2
+###
+
+
+GET http://localhost:3004/cases/03123
 ###
