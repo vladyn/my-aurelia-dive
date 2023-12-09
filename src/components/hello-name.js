@@ -1,3 +1,3 @@
 export class HelloName {
-    name = 'World';
+  name = 'World';
 }
