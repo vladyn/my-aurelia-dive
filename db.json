@@ -1,0 +1,108 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  },
+  "units": [
+    {
+      "workUnitId": "00000000-0000-0000-0000-000000000005",
+      "entityType": "00000000-0000-0000-0000-000000000002",
+      "status": "00000000-0000-0000-0000-000000000000",
+      "key": "0000557",
+      "date": "4/4/2016",
+      "type": "00000000-0000-0000-0000-000000000003",
+      "court": "ЧСИ - 851",
+      "bailiffName": "Физическо лице 1",
+      "debtors": [
+        {
+          "workUnitId": "00000000-0000-0000-0000-000000000022",
+          "name": "Лице 11"
+        },
+        {
+          "workUnitId": "00000000-0000-0000-0000-000000000023",
+          "name": "Лице 12"
+        }
+      ],
+      "otherPeople": [
+        {
+          "workUnitId": "00000000-0000-0000-0000-000000000024",
+          "name": "Лице 13"
+        }
+      ],
+      "cases": [
+        {
+          "workUnitId": "00000000-0000-0000-0000-000000000042",
+          "package": "Случай 21",
+          "status": 0
+        }
+      ]
+    }
+  ],
+  "addresses": [
+    {
+      "id": "c8c9772d-4c6b-6865-e053-0100007f6ed2",
+      "settlementName": "ПРОВАДИЯ",
+      "zipCode": "9201",
+      "address": "Ж.К.СЕВon RpL25 uvog tiJ3 rUo72",
+      "dateAdded": "2011-06-07T13:39:52+03:00"
+    },
+    {
+      "id": "8e1f0c1f-0efd-4b00-9d8e-413b9ecae3d6",
+      "contactActivityTypeId": null,
+      "settlementName": "МАЛО СЕЛО",
+      "zipCode": "2636",
+      "address": "ул.Първа 6"
+    }
+  ],
+  "cases": [
+    {
+      "workUnitId": "03123",
+      "debtor": "банк 1",
+      "date": "05/06/2016",
+      "package": "PPPPP",
+      "boughtAmount": {
+        "amount": 4000,
+        "currency": "BGN"
+      },
+      "paidAmount": {
+        "amount": 500,
+        "currency": "BGN"
+      },
+      "dueAmount": {
+        "amount": 6000,
+        "currency": "BGN"
+      }
+    },
+    {
+      "workUnitId": "04123",
+      "debtor": "банк 2",
+      "date": "05/06/2016",
+      "package": "PPPPP",
+      "boughtAmount": {
+        "amount": 4300,
+        "currency": "BGN"
+      },
+      "paidAmount": {
+        "amount": 500,
+        "currency": "BGN"
+      },
+      "dueAmount": {
+        "amount": 7000,
+        "currency": "BGN"
+      }
+    }
+  ]
+}

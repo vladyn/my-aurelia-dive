@@ -37,7 +37,7 @@ export class MyApp {
   }
 
   async clickHandler3() {
-    const response = await this.httpService.get('https://jsonplaceholder.typicode.com/todos/1');
+    const response = await this.httpService.get('http://localhost:3004/cases');
     console.log('response', response);
   }
 
