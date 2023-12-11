@@ -9,4 +9,15 @@
     <button click.trigger="clickHandler2()">Open Alert</button>
     <button click.trigger="showDialog()">Open Dialog</button>
     <button click.trigger="clickHandler3()">Try to fetch a sample json</button>
+    <button click.trigger="clickHandler4()">State to console</button>
+</div>
+<div>
+<input value.state="keywords">
+<button click.dispatch="{ type: 'clearKeywords' }">Clear keywords</button>
+<input value.state="keywords" input.dispatch="{ type: 'newKeywords', value: $event.target.value }">
+<h3 bind.state="keywords">${state.keywords}</h3>
+<code>
+    ${itemTree[0]?.bailiffName & state}
+    ${keywords & state}
+</code>
 </div>
