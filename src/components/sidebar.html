@@ -1,9 +1,31 @@
 <aside class="sidebar">
-    <h4>Searching for: ${name}</h4>
-    <input type="text" value.bind="name">
-    <ul>
-        <li repeat.for="item of treeItems">
-            <a href="${item?.route}">${item?.name}</a>
-        </li>
-    </ul>
+  <dl>
+    <template repeat.for="item of itemTree & state">
+      <dt>
+        <a href="#" click.trigger="toggleUnit('level0', $index)">+</a>
+        <a href="#" click.trigger="selectUnit('blias')">${item?.bailiffName}</a>
+        <span class="badge">${treeState.level0.item[$index].expanded} index is ${$index}</span>
+      </dt>
+      <dd repeat.for="person of item?.debtors" show.bind="treeState.level0['item'][$index].expanded">
+        <ul>
+          <li>
+            <a href="#" click.trigger="toggleUnit('level1', $index)">+</a>
+            <a href="#" click.trigger="selectUnit('blias')">${person?.name}</a>
+            <span class="badge">${treeState.level1.item[$index].expanded} index is ${$index}</span>
+            <ul repeat.for="case of item?.cases" show.bind="treeState.level1['item'][$index].expanded">
+                <li>
+                    <a href="#" click.trigger="toggleUnit('level1', $index)">+</a>
+                    <a href="#" click.trigger="selectUnit('blias')">${case?.package}</a>
+                    <span class="badge">${treeState.level2.item[$index].expanded} index is ${$index}</span>
+                </li>
+            </ul>
+          </li>
+        </ul>
+      </dd>
+    </template>
+  </dl>
+  <code>
+    ${itemTree[0]?.bailiffName & state}
+    ${keywords & state}
+</code>
 </aside>

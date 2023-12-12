@@ -124,6 +124,18 @@
     "@aurelia/metadata" "2.0.0-beta.8"
     "@aurelia/platform" "2.0.0-beta.8"
 
+"@aurelia/state@^2.0.0-beta.8":
+  version "2.0.0-beta.8"
+  resolved "https://registry.yarnpkg.com/@aurelia/state/-/state-2.0.0-beta.8.tgz#7148b575b521cc95eab2835350bd1b007ac8fa77"
+  integrity sha512-eMKt1QC215VQt/4O/OgU+fkh9aNMmBGvuWwvoKYt0Ncpq+lPfoJI5DbbYxxlrEvwz/mt48v5LREuUDotvrHHQQ==
+  dependencies:
+    "@aurelia/kernel" "2.0.0-beta.8"
+    "@aurelia/metadata" "2.0.0-beta.8"
+    "@aurelia/platform" "2.0.0-beta.8"
+    "@aurelia/platform-browser" "2.0.0-beta.8"
+    "@aurelia/runtime" "2.0.0-beta.8"
+    "@aurelia/runtime-html" "2.0.0-beta.8"
+
 "@aurelia/testing@latest":
   version "2.0.0-beta.8"
   resolved "https://registry.npmjs.org/@aurelia/testing/-/testing-2.0.0-beta.8.tgz"

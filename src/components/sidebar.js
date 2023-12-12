@@ -1,18 +1,37 @@
+import {IStore, IState} from '@aurelia/state';
 import {HttpService} from '../services/http-service';
 
 export class Sidebar {
-  static inject = [HttpService];
+  static inject = [HttpService, IStore, IState];
+  treeState = {
+    level0: {
+      item: [{expanded: true}, {expanded: true}, {expanded: true}],
+    },
+    level1: {
+      item: [{expanded: true}, {expanded: true}, {expanded: true}],
+    },
+  };
 
-  treeItems = [
-    {name: 'Home', route: 'home'},
-    {name: 'About', route: 'about'},
-    {name: 'Contact', route: 'contact'},
-  ];
-
-  constructor(httpService) {
+  constructor(httpService, store, state) {
     this.httpService = httpService;
-    console.log('Sidebar constructor', this.httpService);
+    this.store = store;
+    this.state = state;
   }
 
-  name = 'Sidebar';
+  async attached() {
+    const result = await this.httpService.getUnits();
+    this.store.dispatch({type: 'newItemTree', value: result});
+    this.store.dispatch({type: 'newKeywords', value: 'new keywords'});
+  }
+
+  selectUnit(unit) {
+    this.selectedUnit = unit;
+    console.log('selectedUnit', this.selectedUnit);
+    console.log('state', this.state);
+  }
+
+  toggleUnit(level, itemIndex) {
+    this.treeState[level].item[itemIndex].expanded = !this.treeState[level].item[itemIndex].expanded;
+    console.log(itemIndex);
+  }
 }
