@@ -1,5 +1,5 @@
 import {MyDialog} from './components/my-dialog';
-import {IState} from '@aurelia/state';
+import {IState, fromState} from '@aurelia/state';
 import {IDialogService} from '@aurelia/dialog';
 import {resolve, newInstanceOf} from '@aurelia/kernel';
 import {HttpService} from './services/http-service';
@@ -9,6 +9,9 @@ export class MyApp {
   static inject = [IDialogService, HttpService, IState];
   message = 'Hello World!';
   dialog = resolve(newInstanceOf(MyDialog));
+  dialog = resolve(newInstanceOf(MyDialog));
+  @fromState(state => state.keywords)
+  keywords;
 
   constructor(dialogService, httpService, state) {
     this.message = 'Hello World!';
@@ -33,6 +36,7 @@ export class MyApp {
 
   clickHandler4() {
     console.log('clickHandler4', this.state);
+    console.log('kyewords from the app.js', this.keywords);
   }
 
   showDialog() {
