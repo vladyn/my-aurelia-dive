@@ -4,6 +4,7 @@ import {RouterConfiguration} from '@aurelia/router';
 import {StateDefaultConfiguration} from '@aurelia/state';
 import {initialState} from './constants/initialstate';
 import {keywordsHandler, itemTreeHandler} from './actions/action-handlers';
+import {persistentStatePlugin} from './lib/persistent-state';
 import {MyApp} from './my-app';
 
 Aurelia
@@ -13,9 +14,11 @@ Aurelia
         }))
     .register(DialogDefaultConfiguration)
     .register(StateDefaultConfiguration.init(
-        initialState,
+        JSON.parse(localStorage.getItem('eosState')) || initialState,
         keywordsHandler,
         itemTreeHandler,
-    ))
+    ),
+    persistentStatePlugin('eosState'),
+    )
     .app(MyApp)
     .start();

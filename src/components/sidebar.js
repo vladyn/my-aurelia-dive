@@ -21,7 +21,6 @@ export class Sidebar {
   async attached() {
     const result = await this.httpService.getUnits();
     this.store.dispatch({type: 'newItemTree', value: result});
-    this.store.dispatch({type: 'newKeywords', value: 'new keywords'});
   }
 
   selectUnit(unit) {
