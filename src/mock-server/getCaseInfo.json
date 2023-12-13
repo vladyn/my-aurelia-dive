@@ -1,0 +1,38 @@
+[
+  {
+    "workUnitId": "03123",
+    "debtor": "банк 1",
+    "date": "05/06/2016",
+    "package": "PPPPP",
+    "boughtAmount": {
+      "amount": 4000,
+      "currency": "BGN"
+    },
+    "paidAmount": {
+      "amount": 500,
+      "currency": "BGN"
+    },
+    "dueAmount": {
+      "amount": 6000,
+      "currency": "BGN"
+    }
+  },
+  {
+    "workUnitId": "04123",
+    "debtor": "банк 2",
+    "date": "05/06/2016",
+    "package": "PPPPP",
+    "boughtAmount": {
+      "amount": 4300,
+      "currency": "BGN"
+    },
+    "paidAmount": {
+      "amount": 500,
+      "currency": "BGN"
+    },
+    "dueAmount": {
+      "amount": 7000,
+      "currency": "BGN"
+    }
+  }
+]

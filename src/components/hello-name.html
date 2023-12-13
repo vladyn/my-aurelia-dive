@@ -1,3 +1,19 @@
 <div class="content">
     <p>Hello ${name}</p>
+    <table
+            id="table"
+            data-toggle="table"
+            data-toolbar=".toolbar"
+            data-sortable="true"
+            data-height="460"
+            data-url="../mock-server/getCaseInfo.json">
+        <thead>
+        <tr>
+            <th data-field="state" data-checkbox="true">ID</th>
+            <th data-field="workUnitId" data-sortable="true">ID</th>
+            <th data-field="debtor" data-sortable="true">Debtor</th>
+            <th data-field="date" data-sortable="true">Date</th>
+        </tr>
+        </thead>
+    </table>
 </div>

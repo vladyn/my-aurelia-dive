@@ -1,17 +1,16 @@
-import {MyDialog} from './components/my-dialog';
+import {MyDialog} from './my-dialog';
 import {IState, fromState} from '@aurelia/state';
 import {IDialogService} from '@aurelia/dialog';
 import {resolve, newInstanceOf} from '@aurelia/kernel';
-import {HttpService} from './services/http-service';
-import {ENDPOINTS} from './constants/endpoints';
+import {HttpService} from '../services/http-service';
+import {ENDPOINTS} from '../constants/endpoints';
 
 export class MyApp {
   static inject = [IDialogService, HttpService, IState];
   message = 'Hello World!';
   dialog = resolve(newInstanceOf(MyDialog));
-  dialog = resolve(newInstanceOf(MyDialog));
-  @fromState(state => state.keywords)
-  keywords;
+  @fromState((state) => state.keywords)
+    keywords;
 
   constructor(dialogService, httpService, state) {
     this.message = 'Hello World!';
@@ -23,22 +22,6 @@ export class MyApp {
   clickHandler() {
     this.message = 'Hello Aurelia!';
   }
-
-  clickHandler2() {
-    alert('Hello Aurelia!');
-  }
-
-  async clickHandler3() {
-    const response = await this.httpService.get(ENDPOINTS.cases);
-    const result = await response.json();
-    console.log('result', result);
-  }
-
-  clickHandler4() {
-    console.log('clickHandler4', this.state);
-    console.log('kyewords from the app.js', this.keywords);
-  }
-
   showDialog() {
     this.dialogService
         .open({component: () => MyDialog, model: this.person})

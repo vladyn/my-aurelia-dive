@@ -1,15 +1,12 @@
-<import from="./components/sidebar"></import>
-<import from="./components/hello-name"></import>
+<import from="./sidebar"></import>
+<import from="./hello-name"></import>
 
 <sidebar></sidebar>
 <hello-name></hello-name>
 <div class="message">
     <h1>${message}</h1>
     <button click.trigger="clickHandler()">Change Message</button>
-    <button click.trigger="clickHandler2()">Open Alert</button>
     <button click.trigger="showDialog()">Open Dialog</button>
-    <button click.trigger="clickHandler3()">Try to fetch a sample json</button>
-    <button click.trigger="clickHandler4()">State to console</button>
 </div>
 <div>
 <input value.state="keywords">
@@ -19,5 +16,6 @@
 <code>
     ${itemTree[0]?.bailiffName & state}
     ${keywords & state}
+    ${selectedItem & state}
 </code>
 </div>

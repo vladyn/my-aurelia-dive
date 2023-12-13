@@ -1,8 +1,13 @@
-import {IStore, IState} from '@aurelia/state';
+import {bindable} from 'aurelia';
+import {IStore, IState, fromState} from '@aurelia/state';
 import {HttpService} from '../services/http-service';
+import {ENDPOINTS} from '../constants/endpoints';
 
 export class Sidebar {
   static inject = [HttpService, IStore, IState];
+  @bindable selectedUnit;
+  @fromState((state) => state.selectedItem)
+    selectedItem;
   treeState = {
     level0: {
       item: [{expanded: true}, {expanded: true}, {expanded: true}],
@@ -23,10 +28,18 @@ export class Sidebar {
     this.store.dispatch({type: 'newItemTree', value: result});
   }
 
+
+  async clickHandler3() {
+    const response = await this.httpService.get(ENDPOINTS.cases);
+    const result = await response.json();
+    this.store.dispatch({type: 'newCaseTree', value: result});
+  }
+
+
   selectUnit(unit) {
+    this.store.dispatch({type: 'selectedItemTree', value: unit});
     this.selectedUnit = unit;
-    console.log('selectedUnit', this.selectedUnit);
-    console.log('state', this.state);
+    return this.selectedItem === unit;
   }
 
   toggleUnit(level, itemIndex) {
