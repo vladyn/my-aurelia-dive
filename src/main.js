@@ -5,7 +5,8 @@ import {StateDefaultConfiguration} from '@aurelia/state';
 import {initialState} from './constants/initialstate';
 import {keywordsHandler, itemTreeHandler} from './actions/action-handlers';
 import {persistentStatePlugin} from './lib/persistent-state';
-import {MyApp} from './my-app';
+import {MyApp} from './components/my-app';
+import 'bootstrap/dist/css/bootstrap.css';
 
 Aurelia
     .register(
