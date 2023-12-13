@@ -12,7 +12,6 @@
             <a href="#" click.trigger="toggleUnit('level1', $index)">+</a>
             <a
                     href="#"
-                    data-work-unit-id.bind="person.workUnitId"
                     class.two-way="selectedUnit === person.workUnitId ? 'selected' : ''"
                     click.trigger="selectUnit(person.workUnitId)">
               ${person?.name}
@@ -20,7 +19,12 @@
             <span class="badge">${treeState.level1.item[$index].expanded} index is ${$index}</span>
             <ul repeat.for="case of item?.cases" show.bind="treeState.level1['item'][$index].expanded">
                 <li>
-                    <a href="#" data-work-unit-id.bind="case.workUnitId" click.trigger="selectUnit(case.workUnitId)">${case?.package}</a>
+                    <a
+                            href="#"
+                            class.two-way="selectedUnit === case.workUnitId ? 'selected' : ''"
+                            click.trigger="selectUnit(case.workUnitId)">
+                      ${case?.package}
+                    </a>
                     <span class="badge">${treeState.level2.item[$index].expanded} index is ${$index}</span>
                 </li>
             </ul>
