@@ -1,0 +1,24 @@
+<div class="content">
+    <h1>${title}</h1>
+    <table class="table table-primary table-striped-columns table-bordered">
+        <thead>
+        <tr>
+            <th data-field="workUnitId" data-sortable="true">Work unit ID</th>
+            <th data-field="debtor" data-sortable="true">Debtor</th>
+            <th data-field="date" data-sortable="true">Date</th>
+            <th data-field="package" data-sortable="true">Package</th>
+            <th data-field="bought" data-sortable="true">Bought amount</th>
+            <th data-field="paid" data-sortable="true">Paid amount</th>
+            <th data-field="due" data-sortable="true">Due amount</th>
+        </tr>
+        <tr repeat.for="case of caseTree & state">
+            <td data-field="workUnitId" data-sortable="true">${case.workUnitId}</td>
+            <td data-field="debtor" data-sortable="true">${case.debtor}</td>
+            <td data-field="date" data-sortable="true">${case.date}</td>
+            <td data-field="package" data-sortable="true">${case.package}</td>
+            <td data-field="bought" data-sortable="true">${case.boughtAmount.amount} ${case.boughtAmount.currency}</td>
+            <td data-field="paid" data-sortable="true">${case.paidAmount.amount} ${case.paidAmount.currency}</td>
+            <td data-field="due" data-sortable="true">${case.dueAmount.amount} ${case.dueAmount.currency}</td>
+        </tr>
+    </table>
+</div>

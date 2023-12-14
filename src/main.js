@@ -3,10 +3,11 @@ import {DialogDefaultConfiguration} from '@aurelia/dialog';
 import {RouterConfiguration} from '@aurelia/router';
 import {StateDefaultConfiguration} from '@aurelia/state';
 import {initialState} from './constants/initialstate';
-import {keywordsHandler, itemTreeHandler} from './actions/action-handlers';
+import {itemTreeHandler} from './actions/action-handlers';
 import {persistentStatePlugin} from './lib/persistent-state';
 import {MyApp} from './components/my-app';
 import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap';
 
 Aurelia
     .register(
@@ -16,7 +17,6 @@ Aurelia
     .register(DialogDefaultConfiguration)
     .register(StateDefaultConfiguration.init(
         JSON.parse(localStorage.getItem('eosState')) || initialState,
-        keywordsHandler,
         itemTreeHandler,
     ),
     persistentStatePlugin('eosState'),

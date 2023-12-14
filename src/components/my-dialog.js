@@ -1,11 +1,16 @@
+import {IStore} from '@aurelia/state';
 import {DialogController} from '@aurelia/dialog';
 
 export class MyDialog {
-  static inject = [DialogController];
-  valueFromDialog = '';
+  static inject = [DialogController, IStore];
+  modalAction = 'Редакция / добавяне на адрес';
 
-  constructor(dialogController) {
+  constructor(dialogController, store) {
     this.dialogController = dialogController;
+    this.store = store;
+  }
+  activate(model) {
+    this.model = model;
   }
 
   cancel() {
@@ -13,6 +18,7 @@ export class MyDialog {
   }
 
   accept() {
-    this.dialogController.ok({valueFromDialog: this.valueFromDialog});
+    this.store.dispatch({type: 'addAddress', value: this.model?.address});
+    return this.dialogController.ok({valueFromDialog: this.model});
   }
 }
