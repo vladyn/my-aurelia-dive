@@ -1,20 +1,3 @@
-export function keywordsHandler(currentState, action) {
-  switch (action.type) {
-    case 'newKeywords':
-      return {
-        ...currentState,
-        keywords: action.value,
-      };
-    case 'clearKeywords':
-      return {
-        ...currentState,
-        keywords: '',
-      };
-    default:
-      return currentState;
-  }
-}
-
 export function itemTreeHandler(currentState, action) {
   switch (action.type) {
     case 'newItemTree':
@@ -31,6 +14,21 @@ export function itemTreeHandler(currentState, action) {
       return {
         ...currentState,
         selectedItem: action.value,
+      };
+    case 'newAddressTree':
+      return {
+        ...currentState,
+        addressTree: action.value,
+      };
+    case 'addAddress':
+      return {
+        ...currentState,
+        addressTree: [...currentState.addressTree, action.value],
+      };
+    case 'deleteAddress':
+      return {
+        ...currentState,
+        addressTree: currentState.addressTree.filter((_, i) => i !== action.value?.index),
       };
     default:
       return currentState;

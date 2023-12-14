@@ -1,31 +1,28 @@
-<aside class="sidebar">
+<aside>
   <dl>
     <template repeat.for="item of itemTree & state">
       <dt data-key.bind="item.key">
         <a href="#" click.trigger="toggleUnit('level0', $index)">+</a>
-        <a href="#" click.trigger="selectUnit(item.key)">${item?.bailiffName}</a>
-        <span class="badge">${treeState.level0.item[$index].expanded} index is ${$index}</span>
+        <a load="/" click.trigger="selectUnit(item.key)" class.two-way="selectedUnit === item.key ? 'selected' : ''">${item?.bailiffName}</a>
       </dt>
-      <dd repeat.for="person of item?.debtors" show.bind="treeState.level0['item'][$index].expanded">
+      <dd repeat.for="person of item?.debtors">
         <ul>
           <li>
             <a href="#" click.trigger="toggleUnit('level1', $index)">+</a>
             <a
-                    href="#"
+                    load="/addresses/${person.name}"
                     class.two-way="selectedUnit === person.workUnitId ? 'selected' : ''"
                     click.trigger="selectUnit(person.workUnitId)">
               ${person?.name}
             </a>
-            <span class="badge">${treeState.level1.item[$index].expanded} index is ${$index}</span>
-            <ul repeat.for="case of item?.cases" show.bind="treeState.level1['item'][$index].expanded">
+            <ul repeat.for="case of item?.cases">
                 <li>
                     <a
-                            href="#"
+                            load="/cases/${case.workUnitId}"
                             class.two-way="selectedUnit === case.workUnitId ? 'selected' : ''"
                             click.trigger="selectUnit(case.workUnitId)">
                       ${case?.package}
                     </a>
-                    <span class="badge">${treeState.level2.item[$index].expanded} index is ${$index}</span>
                 </li>
             </ul>
           </li>

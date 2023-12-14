@@ -3,5 +3,7 @@ export const initialState = {
   items: [],
   itemTree: [],
   caseTree: [],
+  addressTree: [],
   selectedItem: null,
+  loadedPerson: null,
 };

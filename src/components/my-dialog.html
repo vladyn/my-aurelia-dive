@@ -1,17 +1,42 @@
 <div class="modal" style="display: block;">
     <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title">Modal title</h5>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">${modalAction}</h5>
+            </div>
+            <div class="modal-body">
+                <div class="container">
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Адрес:</label>
+                        <textarea
+                                type="text" class="form-control"
+                                id="exampleFormControlInput1"
+                                value.bind="model.address.address"
+                                placeholder="улица, ж.к. бл. номер, ет. ап."
+                                rows="2">
+                        </textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput2" class="form-label">Град:</label>
+                        <input type="text" class="form-control"
+                               id="exampleFormControlInput2"
+                               autocomplete="off"
+                               value.bind="model.address.settlementName"
+                               placeholder="Варна">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput3" class="form-label">Пощенски код:</label>
+                        <input type="text" class="form-control"
+                               id="exampleFormControlInput3"
+                               value.bind="model.address.zipCode"
+                               placeholder="12345">
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary btn-success" click.trigger="accept">Запазване</button>
+                <button type="button" class="btn btn-secondary btn-danger" click.trigger="cancel">Отмяна</button>
+            </div>
         </div>
-        <div class="modal-body">
-          <p>Introduce some text:</p>
-          <input id="title_input" type="text" class="validate" value.bind="valueFromDialog" >
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-primary" click.trigger="accept">Save changes</button>
-          <button type="button" class="btn btn-secondary" click.trigger="cancel">Close</button>
-        </div>
-      </div>
-    </div> 
-  </div>   
+    </div>
+</div>

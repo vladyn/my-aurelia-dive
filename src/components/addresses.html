@@ -1,0 +1,24 @@
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th scope="col">Адрес</th>
+        <th scope="col">Град</th>
+        <th scope="col">п. код</th>
+        <th scope="row">Действия</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr repeat.for="address of addressTree & state">
+        <td class="align-middle">${address.address}</td>
+        <td class="align-middle">${address.settlementName}</td>
+        <td class="align-middle">${address.zipCode}</td>
+        <td>
+            <div class="btn-group-vertical">
+                <button class="btn btn-warning" click.trigger="editAddress(address)">Редакция</button>
+                <button class="btn btn-danger" click.trigger="deleteAddress(address, $index)">Изтриване</button>
+            </div>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<button class="btn btn-primary btn-lg btn-success" click.trigger="addAddress()">Добавяне на нов</button>

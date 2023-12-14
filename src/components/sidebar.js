@@ -8,14 +8,6 @@ export class Sidebar {
   @bindable selectedUnit;
   @fromState((state) => state.selectedItem)
     selectedItem;
-  treeState = {
-    level0: {
-      item: [{expanded: true}, {expanded: true}, {expanded: true}],
-    },
-    level1: {
-      item: [{expanded: true}, {expanded: true}, {expanded: true}],
-    },
-  };
 
   constructor(httpService, store, state) {
     this.httpService = httpService;
@@ -43,7 +35,6 @@ export class Sidebar {
   }
 
   toggleUnit(level, itemIndex) {
-    this.treeState[level].item[itemIndex].expanded = !this.treeState[level].item[itemIndex].expanded;
     console.log(itemIndex);
   }
 }
