@@ -1,5 +1,4 @@
 import {itemTreeHandler} from '../../src/actions/action-handlers';
-import {keywordsHandler} from '../../src/actions/action-handlers';
 
 describe('Actiopn handlers', () => {
   describe('itemTreeHandler', () => {
