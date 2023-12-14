@@ -3,7 +3,7 @@
     <template repeat.for="item of itemTree & state">
       <dt data-key.bind="item.key">
         <a href="#" click.trigger="toggleUnit('level0', $index)">+</a>
-        <a href="#" click.trigger="selectUnit(item.key)">${item?.bailiffName}</a>
+        <a href="#" click.trigger="selectUnit(item.key)" class.two-way="selectedUnit === item.key ? 'selected' : ''">${item?.bailiffName}</a>
         <span class="badge">${treeState.level0.item[$index].expanded} index is ${$index}</span>
       </dt>
       <dd repeat.for="person of item?.debtors" show.bind="treeState.level0['item'][$index].expanded">
