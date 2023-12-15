@@ -8,6 +8,8 @@ export class Sidebar {
     @bindable selectedUnit;
     @fromState((state) => state.selectedItem)
         selectedItem;
+    @fromState((state) => state.itemTreeState)
+        itemTreeState;
 
     constructor(httpService, store, state) {
         this.httpService = httpService;
@@ -35,6 +37,7 @@ export class Sidebar {
     }
 
     toggleUnit(level, itemIndex) {
-        console.log(itemIndex);
+        // eslint-disable-next-line max-len
+        this.store.dispatch({type: 'newItemTreeState', value: {[level]: {[itemIndex]: this.itemTreeState[level][itemIndex] === 'open' ? 'closed' : 'open'}}});
     }
 }
