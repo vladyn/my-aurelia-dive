@@ -1,0 +1,16 @@
+aside {
+    background-color: #f5f5f5;
+    border-right: 1px solid #e7e7e7;
+    padding: 20px;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.selected {
+    font-weight: bold !important;
+    color: black !important;
+}

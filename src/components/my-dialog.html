@@ -1,42 +1,61 @@
 <div class="modal" style="display: block;">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">${modalAction}</h5>
-            </div>
-            <div class="modal-body">
-                <div class="container">
-                    <div class="mb-3">
-                        <label for="exampleFormControlInput1" class="form-label">Адрес:</label>
-                        <textarea
+            <form submit.trigger="accept()">
+                <div class="modal-header">
+                    <h5 class="modal-title">${modalAction}</h5>
+                </div>
+                <div class="modal-body">
+                    <div class="container">
+                        <div class="mb-3">
+                            <label for="exampleFormControlInput1" class="form-label">Адрес:</label>
+                            <div validation-errors.from-view="addressErrors">
+                            <textarea
+                                class="form-control ${addressErrors.length ? 'error' : ''}"
                                 type="text" class="form-control"
                                 id="exampleFormControlInput1"
-                                value.bind="model.address.address"
+                                name="address"
+                                value.bind="model.address & validate"
                                 placeholder="улица, ж.к. бл. номер, ет. ап."
                                 rows="2">
-                        </textarea>
-                    </div>
-                    <div class="mb-3">
-                        <label for="exampleFormControlInput2" class="form-label">Град:</label>
-                        <input type="text" class="form-control"
-                               id="exampleFormControlInput2"
-                               autocomplete="off"
-                               value.bind="model.address.settlementName"
-                               placeholder="Варна">
-                    </div>
-                    <div class="mb-3">
-                        <label for="exampleFormControlInput3" class="form-label">Пощенски код:</label>
-                        <input type="text" class="form-control"
-                               id="exampleFormControlInput3"
-                               value.bind="model.address.zipCode"
-                               placeholder="12345">
+                            </textarea>
+                            <span repeat.for="error of addressErrors" class="error-message">${error.result.message}</span>
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleFormControlInput2" class="form-label">Град:</label>
+                            <div validation-errors.from-view="settlementNameErrors">
+                                <input type="text" class="form-control ${settlementNameErrors.length ? 'error' : ''}"
+                                       id="exampleFormControlInput2"
+                                       name="settlementName"
+                                       autocomplete="off"
+                                       value.bind="model.settlementName & validate"
+                                       placeholder="Варна">
+                                <span repeat.for="error of settlementNameErrors" class="error-message">${error.result.message}</span>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleFormControlInput3" class="form-label">Пощенски код:</label>
+                            <div validation-errors.from-view="zipCodeErrors">
+                                <input type="text" class="form-control ${zipCodeErrors.length ? 'error' : ''}"
+                                       id="exampleFormControlInput3"
+                                       name="zipCode"
+                                       value.bind="model.zipCode & validate"
+                                       placeholder="12345">
+                                <span repeat.for="error of zipCodeErrors" class="error-message">${error.result.message}</span>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <div>
+                                <span repeat.for="error of errors">${error.result.message}</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-primary btn-success" click.trigger="accept">Запазване</button>
-                <button type="button" class="btn btn-secondary btn-danger" click.trigger="cancel">Отмяна</button>
-            </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary btn-success">Запазване</button>
+                    <button type="button" class="btn btn-secondary btn-danger" click.trigger="cancel">Отмяна</button>
+                </div>
+            </form>
         </div>
     </div>
 </div>

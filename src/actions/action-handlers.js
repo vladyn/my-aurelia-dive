@@ -1,36 +1,36 @@
 export function itemTreeHandler(currentState, action) {
-  switch (action.type) {
+    switch (action.type) {
     case 'newItemTree':
-      return {
-        ...currentState,
-        itemTree: action.value,
-      };
+        return {
+            ...currentState,
+            itemTree: action.value,
+        };
     case 'newCaseTree':
-      return {
-        ...currentState,
-        caseTree: action.value,
-      };
+        return {
+            ...currentState,
+            caseTree: action.value,
+        };
     case 'selectedItemTree':
-      return {
-        ...currentState,
-        selectedItem: action.value,
-      };
+        return {
+            ...currentState,
+            selectedItem: action.value,
+        };
     case 'newAddressTree':
-      return {
-        ...currentState,
-        addressTree: action.value,
-      };
+        return {
+            ...currentState,
+            addressTree: action.value,
+        };
     case 'addAddress':
-      return {
-        ...currentState,
-        addressTree: [...currentState.addressTree, action.value],
-      };
+        return {
+            ...currentState,
+            addressTree: [...new Set([...currentState.addressTree, action.value])],
+        };
     case 'deleteAddress':
-      return {
-        ...currentState,
-        addressTree: currentState.addressTree.filter((_, i) => i !== action.value?.index),
-      };
+        return {
+            ...currentState,
+            addressTree: currentState.addressTree.filter((_, i) => i !== action.value?.index),
+        };
     default:
-      return currentState;
-  }
+        return currentState;
+    }
 }

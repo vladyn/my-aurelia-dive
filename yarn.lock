@@ -193,6 +193,30 @@
     "@aurelia/runtime" "2.0.0-beta.8"
     "@aurelia/runtime-html" "2.0.0-beta.8"
 
+"@aurelia/validation-html@^2.0.0-beta.9":
+  version "2.0.0-beta.9"
+  resolved "https://registry.yarnpkg.com/@aurelia/validation-html/-/validation-html-2.0.0-beta.9.tgz#719fd11891112cf92d8454401ece1ac290e0c976"
+  integrity sha512-RNa1Vl9M45I2QTJZXLo4O/jran/ZPI4XkoMouQIePRxkbT2f+qIEMR1Uaibi/vw5vAeSMEqxBrqfQ7IQ4LX/WA==
+  dependencies:
+    "@aurelia/kernel" "2.0.0-beta.9"
+    "@aurelia/metadata" "2.0.0-beta.9"
+    "@aurelia/platform" "2.0.0-beta.9"
+    "@aurelia/platform-browser" "2.0.0-beta.9"
+    "@aurelia/runtime" "2.0.0-beta.9"
+    "@aurelia/runtime-html" "2.0.0-beta.9"
+    "@aurelia/validation" "2.0.0-beta.9"
+
+"@aurelia/validation@2.0.0-beta.9", "@aurelia/validation@^2.0.0-beta.9":
+  version "2.0.0-beta.9"
+  resolved "https://registry.yarnpkg.com/@aurelia/validation/-/validation-2.0.0-beta.9.tgz#14331f488a9cb05d62c99bac40164d7d10e86107"
+  integrity sha512-Euv+vXNbjPWlQnYthsYAPiSLRIo31d2u0zHq6b9GIc7bY+OdcX6jo9q+nmk7eMXf8r8O8+73IKq4lv0rme5FPQ==
+  dependencies:
+    "@aurelia/kernel" "2.0.0-beta.9"
+    "@aurelia/metadata" "2.0.0-beta.9"
+    "@aurelia/platform" "2.0.0-beta.9"
+    "@aurelia/runtime" "2.0.0-beta.9"
+    "@aurelia/runtime-html" "2.0.0-beta.9"
+
 "@aurelia/webpack-loader@latest":
   version "2.0.0-beta.8"
   resolved "https://registry.npmjs.org/@aurelia/webpack-loader/-/webpack-loader-2.0.0-beta.8.tgz"
