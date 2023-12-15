@@ -8,6 +8,9 @@ aside {
     left: 0;
     overflow-x: hidden;
     overflow-y: auto;
+    & a {
+        text-decoration: none !important;
+    }
 }
 
 .selected {

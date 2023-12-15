@@ -5,6 +5,11 @@ export function itemTreeHandler(currentState, action) {
             ...currentState,
             itemTree: action.value,
         };
+    case 'newItemTreeState':
+        return {
+            ...currentState,
+            itemTreeState: {...currentState.itemTreeState, ...action.value},
+        };
     case 'newCaseTree':
         return {
             ...currentState,
