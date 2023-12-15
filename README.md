@@ -2,6 +2,11 @@
 
 This project is bootstrapped by [aurelia/new](https://github.com/aurelia/new).
 
+## Start the mock server 
+
+    npm run mock-server
+
+
 ## Start dev web server
 
     npm start
