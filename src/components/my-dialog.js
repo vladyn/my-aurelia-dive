@@ -1,24 +1,49 @@
 import {IStore} from '@aurelia/state';
+import {IValidationRules} from '@aurelia/validation';
+import {newInstanceForScope, resolve} from '@aurelia/kernel';
+import {IValidationController} from '@aurelia/validation-html';
 import {DialogController} from '@aurelia/dialog';
 
 export class MyDialog {
-  static inject = [DialogController, IStore];
-  modalAction = 'Редакция / добавяне на адрес';
+    static inject = [DialogController, IStore, IValidationRules];
+    modalAction = 'Редакция / добавяне на адрес';
+    validationController = resolve(newInstanceForScope(IValidationController));
 
-  constructor(dialogController, store) {
-    this.dialogController = dialogController;
-    this.store = store;
-  }
-  activate(model) {
-    this.model = model;
-  }
+    constructor(dialogController, store, validationRules) {
+        this.dialogController = dialogController;
+        this.validationRules = validationRules;
+        this.store = store;
+    }
 
-  cancel() {
-    this.dialogController.cancel();
-  }
+    activate(model) {
+        this.model = model;
+        this.validationRules
+            .on(this.model)
+            .ensure('address')
+            .required()
+            .minLength(3)
+            .maxLength(100)
+            .ensure('settlementName')
+            .required()
+            .minLength(3)
+            .maxLength(100)
+            .ensure('zipCode')
+            .required()
+            .minLength(3)
+            .maxLength(5);
+    }
 
-  accept() {
-    this.store.dispatch({type: 'addAddress', value: this.model?.address});
-    return this.dialogController.ok({valueFromDialog: this.model});
-  }
+    cancel() {
+        this.dialogController.cancel();
+    }
+
+    async accept() {
+        const result = await this.validationController.validate();
+        console.log('result', result);
+        if (!result.valid) {
+            return;
+        }
+        this.store.dispatch({type: 'addAddress', value: this.model});
+        this.dialogController.ok({valueFromDialog: this.model});
+    }
 }

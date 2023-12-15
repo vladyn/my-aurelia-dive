@@ -1,0 +1,8 @@
+.error {
+    border: 1px solid #ff0000 !important;
+    color: #ff0000 !important;
+}
+
+.error-message {
+    color: #ff0000 !important;
+}

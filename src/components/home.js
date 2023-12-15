@@ -1,3 +1,3 @@
 export class Home {
-  title = 'Начало';
+    title = 'Начало';
 }

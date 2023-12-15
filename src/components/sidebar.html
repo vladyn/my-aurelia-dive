@@ -2,15 +2,16 @@
   <dl>
     <template repeat.for="item of itemTree & state">
       <dt data-key.bind="item.key">
-        <a href="#" click.trigger="toggleUnit('level0', $index)">+</a>
-        <a load="/" click.trigger="selectUnit(item.key)" class.two-way="selectedUnit === item.key ? 'selected' : ''">${item?.bailiffName}</a>
+        <a href="#" class="badge bg-dark" click.trigger="toggleUnit('level0', $index)">+</a>
+        <a load="/" class="badge bg-success" click.trigger="selectUnit(item.key)" class.two-way="selectedUnit === item.key ? 'selected' : ''">${item?.bailiffName}</a>
       </dt>
       <dd repeat.for="person of item?.debtors">
         <ul>
           <li>
-            <a href="#" click.trigger="toggleUnit('level1', $index)">+</a>
+            <a href="#" class="badge bg-dark" click.trigger="toggleUnit('level1', $index)">+</a>
             <a
-                    load="/addresses/${person.name}"
+                    load="/addresses/${person.workUnitId}"
+                    class="badge bg-warning"
                     class.two-way="selectedUnit === person.workUnitId ? 'selected' : ''"
                     click.trigger="selectUnit(person.workUnitId)">
               ${person?.name}
@@ -19,6 +20,7 @@
                 <li>
                     <a
                             load="/cases/${case.workUnitId}"
+                            class="badge bg-info"
                             class.two-way="selectedUnit === case.workUnitId ? 'selected' : ''"
                             click.trigger="selectUnit(case.workUnitId)">
                       ${case?.package}
