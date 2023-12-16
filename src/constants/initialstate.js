@@ -5,6 +5,7 @@ export const initialState = {
     itemTreeState: {
         level0: ['open'],
         level1: ['open', 'open'],
+        level2: ['open', 'open'],
     },
     caseTree: [],
     addressTree: [],

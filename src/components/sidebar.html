@@ -37,6 +37,35 @@
                     </li>
                 </ul>
             </dd>
+            <dd repeat.for="person of item?.otherPeople" show.bind="itemTreeState.level0[0] === 'open'">
+                <ul>
+                    <li>
+                        <a href="#" class="badge bg-dark" click.trigger="toggleUnit('level2', $index)">
+                            ${itemTreeState.level1[$index] === 'open' ? '-' : '+'}
+                        </a>
+                        <a
+                                load="/addresses/${person.workUnitId}"
+                                class="badge bg-warning"
+                                class.two-way="selectedUnit === person.workUnitId ? 'selected' : ''"
+                                click.trigger="selectUnit(person.workUnitId)">
+                            ${person?.name}
+                        </a>
+                        <div show.bind="itemTreeState.level2[$index] === 'open'">
+                            <ul repeat.for="case of item?.cases">
+                                <li>
+                                    <a
+                                            load="/cases/${case.workUnitId}"
+                                            class="badge bg-info"
+                                            class.two-way="selectedUnit === case.workUnitId ? 'selected' : ''"
+                                            click.trigger="selectUnit(case.workUnitId)">
+                                        ${case?.package}
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </dd>
         </template>
     </dl>
 </aside>
