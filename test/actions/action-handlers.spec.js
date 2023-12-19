@@ -22,5 +22,10 @@ describe('Actiopn handlers', () => {
             const action = {type: 'selectedItemTree', value: 'bar'};
             expect(itemTreeHandler(currentState, action)).toEqual({selectedItem: 'bar'});
         });
+        it('should return a new state with the addressTree property updated', () => {
+            const currentState = {addressTree: 'foo'};
+            const action = {type: 'newAddressTree', value: 'bar'};
+            expect(itemTreeHandler(currentState, action)).toEqual({addressTree: 'bar'});
+        });
     });
 });
