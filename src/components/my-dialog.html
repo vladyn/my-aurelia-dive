@@ -12,7 +12,7 @@
                             <div validation-errors.from-view="addressErrors">
                             <textarea
                                 class="form-control ${addressErrors.length ? 'error' : ''}"
-                                type="text" class="form-control"
+                                type="text"
                                 id="exampleFormControlInput1"
                                 name="address"
                                 value.bind="model.address & validate"
@@ -54,6 +54,7 @@
                 <div class="modal-footer">
                     <button type="submit" class="btn btn-primary btn-success">Запазване</button>
                     <button type="button" class="btn btn-secondary btn-danger" click.trigger="cancel">Отмяна</button>
+                </div>
                 </div>
             </form>
         </div>

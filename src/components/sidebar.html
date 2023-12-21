@@ -8,6 +8,7 @@
                 </a>
                 <a load="/" class="badge bg-success" click.trigger="selectUnit(item.key)"
                    class.two-way="selectedUnit === item.key ? 'selected' : ''">${item?.bailiffName}</a>
+            </dt>
             <dd repeat.for="person of item?.debtors" show.bind="itemTreeState.level0[0] === 'open'">
                 <ul>
                     <li>
