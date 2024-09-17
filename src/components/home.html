@@ -7,5 +7,10 @@
             <button type="button" class="btn btn-primary btn-lg px-4 gap-3">Primary button</button>
             <button type="button" class="btn btn-outline-secondary btn-lg px-4">Secondary</button>
         </div>
+        <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+            <button class="btn btn-primary ${isActive ? 'btn-active' : 'blocked-btn'} submit">AAA</button>
+            <button class.bind="isActive ? 'btn-active' : 'blocked-btn'">AAA</button>
+            <button class.one-time="isActive ? 'btn-active' : 'blocked-btn'">AAA</button>
+        </div>
     </div>
 </div>
